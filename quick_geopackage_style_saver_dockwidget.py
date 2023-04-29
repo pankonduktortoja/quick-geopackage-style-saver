@@ -64,7 +64,7 @@ class QuickGeopackageStyleSaverDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             layer.saveStyleToDatabase(layer_name, "My favorite style", True, "", QgsMapLayer.AllStyleCategories)
             layer.triggerRepaint()
             self.progressBar.setValue(100)
-            self.textBrowser.append("Style saved for" + layer_name)
+            self.textBrowser.append("Style saved for " + layer_name)
         else:
             self.textBrowser.append("The layer is not a vector layer")
 
