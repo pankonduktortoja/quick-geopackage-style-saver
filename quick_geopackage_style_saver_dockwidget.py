@@ -22,8 +22,8 @@
  ***************************************************************************/
 """
 
-from qgis.PyQt import QtGui, QtWidgets, uic
-from qgis.PyQt.QtCore import pyqtSignal
+from qgis.PyQt import *
+from qgis.PyQt.QtCore import *
 from qgis.core import *
 from qgis.utils import *
 import os.path
@@ -41,9 +41,15 @@ class QuickGeopackageStyleSaverDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
         super(QuickGeopackageStyleSaverDockWidget, self).__init__(parent)
         self.setupUi(self)
         self.pbActive.clicked.connect(self.runActive)
-        #self.pbAll.clicked.connect(self.runAll)
+        self.pbAll.clicked.connect(self.runAll)
+        self.pbClear.clicked.connect(self.runClear)
+
+    def runClear(self):
+        self.textBrowser.setText("")
+        self.progressBar.reset()
 
     def runActive(self):
+        self.progressBar.reset()
         layer = iface.activeLayer()
         if layer.type() == QgsMapLayerType.VectorLayer:
             layer_name = layer.name()
@@ -57,8 +63,41 @@ class QuickGeopackageStyleSaverDockWidget(QtWidgets.QDockWidget, FORM_CLASS):
             """
             layer.saveStyleToDatabase(layer_name, "My favorite style", True, "", QgsMapLayer.AllStyleCategories)
             layer.triggerRepaint()
+            self.progressBar.setValue(100)
+            self.textBrowser.append("Style saved for" + layer_name)
         else:
-            iface.messageBar().pushCritical("Error", "The layer is not a vector layer")
+            self.textBrowser.append("The layer is not a vector layer")
+
+    def runAll(self):
+        project = QgsProject.instance()
+        layer_count_total = 0
+        layer_count = 0
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.type() == QgsMapLayerType.VectorLayer:
+                layer_count_total += 1
+        self.textBrowser.append("Running save styles for all layers. Layer count to save: " + str(layer_count_total))
+        for layer in QgsProject.instance().mapLayers().values():
+            if layer.type() == QgsMapLayerType.VectorLayer:
+                layer_name = layer.name()
+            style = """
+            <qgis>
+                <renderer-v2 type="RuleRenderer">
+                    <rules/>
+                </renderer-v2>
+                <labeling/>
+            </qgis>
+            """
+            layer.saveStyleToDatabase(layer_name, "My favorite style", True, "", QgsMapLayer.AllStyleCategories)
+            layer.triggerRepaint()
+            layer_count += 1
+            if layer_count_total is not None:
+                pbValue = layer_count / layer_count_total
+            else:
+                self.textBrowser.append("Can't divide by zero")
+            self.progressBar.setValue(int(pbValue * 100))
+            self.textBrowser.append("Layers processed: " + str(layer_count) + " out of " + str(layer_count_total) + " Style saved for " + layer_name)
+        self.textBrowser.append("Layer styles saved! No errors occured.")
+
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
