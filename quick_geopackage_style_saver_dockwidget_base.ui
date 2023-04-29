@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QuickGeopackageStyleSaverDockWidgetBase</class>
+ <widget class="QDockWidget" name="QuickGeopackageStyleSaverDockWidgetBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>724</width>
+    <height>192</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quick geopackage style saver</string>
+  </property>
+  <widget class="QWidget" name="dockWidgetContents">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="pbActive">
+          <property name="text">
+           <string>Save style for active layer</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pbAll">
+          <property name="text">
+           <string>Save styles for all layers</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="textBrowser">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Lorem ipsum dolor sit amet. Ut itaque nulla qui omnis ipsam et commodi voluptates ut repellat doloremque aut eaque galisum ut quasi quia. Et nobis itaque qui tempora numquam qui officia alias ex ullam pariatur 33 suscipit labore non consequatur ipsum. Qui voluptate fugiat ab tempora quia ad veritatis recusandae ea tempora recusandae id illum reiciendis. Sit repellendus galisum ut error voluptatum est blanditiis dolorem 33 cupiditate dicta est voluptatem voluptas sit omnis perspiciatis. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Et repudiandae impedit aut molestias impedit qui ducimus neque id illo iste aut magni vero. 33 possimus voluptatum eos facilis cumque ut impedit omnis et dolore culpa et similique quaerat aut molestias officiis qui placeat inventore. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Qui placeat libero cum inventore doloribus in reiciendis laudantium et adipisci sint? Ea totam nihil sed officia rerum ex cupiditate numquam aut veniam eveniet est cumque sequi ea velit praesentium in neque velit. Et voluptatem sunt et suscipit officia et galisum neque qui veritatis aperiam est nulla cumque aut delectus aperiam sit quaerat nihil. Est voluptas placeat est sunt quae ea voluptatibus laudantium est totam saepe est Quis doloremque et dicta voluptates 33 iste dolor. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>24</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
