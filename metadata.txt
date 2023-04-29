@@ -12,8 +12,8 @@ email=bartosz.leczycki98@gmail.com
 
 about=Used to quickly save layer's style into geopackage with just one click.
 
-tracker=http://bugs
-repository=http://repo
+tracker=https://github.com/pankonduktortoja/quick-geopackage-style-saver
+repository=https://github.com/pankonduktortoja/quick-geopackage-style-saver
 # End of mandatory metadata
 
 # Recommended items:
@@ -25,7 +25,7 @@ hasProcessingProvider=no
 # Tags are comma separated with spaces allowed
 tags=python
 
-homepage=http://homepage
+homepage=https://github.com/pankonduktortoja/quick-geopackage-style-saver
 category=Plugins
 icon=icon.png
 # experimental flag
